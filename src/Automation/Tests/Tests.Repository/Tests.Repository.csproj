@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogInTests.cs" />
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="enums\BrowserType.cs" />
+    <Compile Include="enums\ToolType.cs" />
+    <Compile Include="Tests\LogInTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

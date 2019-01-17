@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pages.Factory
+namespace Tests.Repository
 {
-    public class Class1
+    class BaseClass
     {
+        
     }
 }

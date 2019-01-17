@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Selenium.Page.Repository
+namespace Common.Library
 {
-    public class Class1
+    public enum ToolType
     {
+        API,
+        Selenium
     }
 }
