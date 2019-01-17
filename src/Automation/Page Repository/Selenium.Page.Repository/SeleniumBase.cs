@@ -14,7 +14,7 @@ namespace Selenium.Page.Repository
 
         public SeleniumBase()
         {
-            Driver=GetD
+            
         }
         public void InitialSetup()
         {

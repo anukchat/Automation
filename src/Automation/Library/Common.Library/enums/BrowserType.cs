@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tests.Repository.enums
+namespace Common.Library.enums
 {
-    public enum ToolType
+    public enum BrowserType
     {
-        API,
-        Selenium
+        Chrome,
+        IE,
+        Firefox
     }
+
 }
