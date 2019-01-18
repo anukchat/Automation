@@ -8,11 +8,15 @@ namespace Pages.Factory
     {
         private IBase _base;
 
+        public BaseClass()
+        {
+            _base = BaseFactory.GetInstance<IBase>(ToolType.Selenium);
+        }
         [OneTimeSetUp]
         public void SetUp()
         {
-            _base = BaseFactory.GetInstance<IBase>(ToolType.Selenium);
             _base.InitialSetup();
         }
+
     }
 }
