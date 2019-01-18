@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Factory\Pages.Factory\Pages.Factory.csproj">
-      <Project>{49E39D95-B98B-4080-87B4-9022870B30D4}</Project>
-      <Name>Pages.Factory</Name>
+    <ProjectReference Include="..\..\Pages.Contracts\Pages.Contracts.csproj">
+      <Project>{41E0A0B0-1E60-4C26-9708-C78A30502841}</Project>
+      <Name>Pages.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

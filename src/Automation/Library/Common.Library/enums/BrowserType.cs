@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Common.Library.enums
+﻿namespace Common.Library.enums
 {
     public enum BrowserType
     {
@@ -12,5 +6,4 @@ namespace Common.Library.enums
         IE,
         Firefox
     }
-
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
+using Pages.Factory;
 
 namespace Tests.Repository
 {
-    public class LogInTests
+    [TestFixture]
+    public class LogInTests : BaseClass
     {
-
     }
 }

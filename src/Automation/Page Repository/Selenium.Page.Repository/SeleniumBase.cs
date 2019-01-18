@@ -1,24 +1,19 @@
 ﻿using OpenQA.Selenium;
-using Pages.Factory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Pages.Contracts;
 
 namespace Selenium.Page.Repository
 {
     public class SeleniumBase : IBase
     {
-        public IWebDriver Driver;
+        public IWebDriver Driver { get; set; }
 
         public SeleniumBase()
         {
-            
         }
+
         public void InitialSetup()
         {
-            throw new NotImplementedException();
+            //Driver = GetDriver();
         }
     }
 }
