@@ -3,15 +3,16 @@
 namespace Tests.Repository
 {
     [TestFixture]
-    public class LogInTests:BaseClass
+    public class GradeBookTests:BaseClass
     {
         [Test]
-        public void TestMethod1()
+        public void TestProject1Presentation()
         {
 
         }
+
         [Test]
-        public void TestMethod2()
+        public void TestProject2Presentation()
         {
 
         }

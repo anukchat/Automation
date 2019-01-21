@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="Tests\GradeBookTests.cs" />
     <Compile Include="Tests\LogInTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +59,10 @@
     <ProjectReference Include="..\..\Factory\Pages.Factory\Pages.Factory.csproj">
       <Project>{49E39D95-B98B-4080-87B4-9022870B30D4}</Project>
       <Name>Pages.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\Common.Library\Common.Library.csproj">
+      <Project>{D936D246-2D27-4313-BD54-F6D8A6498284}</Project>
+      <Name>Common.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Pages.Contracts\Pages.Contracts.csproj">
       <Project>{41E0A0B0-1E60-4C26-9708-C78A30502841}</Project>

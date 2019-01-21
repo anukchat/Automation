@@ -9,17 +9,13 @@ namespace Selenium.Page.Repository
 {
     public class SeleniumBase : IBase
     {
-        public static IWebDriver Driver { get; set; }
-
-        public SeleniumBase()
-        {
-            Driver = GetDriver(BrowserType.Chrome);
-        }        
-
+        public IWebDriver Driver { get; set; }
+      
         public void InitialSetup()
         {
+            Driver = GetDriver(BrowserType.Chrome);
             Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("google.com");
+            Driver.Navigate().GoToUrl("https://qa.moodle.net/");
         }
         private IWebDriver GetDriver(BrowserType browserType)
         {

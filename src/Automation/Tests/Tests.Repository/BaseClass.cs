@@ -1,8 +1,9 @@
 ﻿using Common.Library.enums;
 using NUnit.Framework;
 using Pages.Contracts;
+using Pages.Factory;
 
-namespace Pages.Factory
+namespace Tests.Repository
 {
     public class BaseClass
     {
