@@ -2,6 +2,7 @@
 using Common.Library.enums;
 using Pages.Contracts;
 using Selenium.Page.Repository;
+using Selenium.Page.Repository.Pages;
 using System;
 
 namespace Pages.Factory
@@ -24,6 +25,10 @@ namespace Pages.Factory
                 if (typeof(T) == typeof(IBase))
                 {
                     obj = (T)Activator.CreateInstance(typeof(SeleniumBase));
+                }
+                else if (typeof(T) == typeof(ILogIn))
+                {
+                    obj = (T)Activator.CreateInstance(typeof(SeleniumLogInPage));
                 }
             }
 
