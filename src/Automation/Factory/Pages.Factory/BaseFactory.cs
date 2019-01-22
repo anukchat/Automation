@@ -9,7 +9,7 @@ namespace Pages.Factory
 {
     public class BaseFactory
     {
-        public static T GetInstance<T>(ToolType tool)
+        public static T GetInstance<T>(ToolType tool,object param=null)
         {
             T obj = default(T);
 
@@ -28,7 +28,7 @@ namespace Pages.Factory
                 }
                 else if (typeof(T) == typeof(ILogIn))
                 {
-                    obj = (T)Activator.CreateInstance(typeof(SeleniumLogInPage));
+                    obj = (T)Activator.CreateInstance(typeof(SeleniumLogInPage),param);
                 }
             }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Common.Library.enums;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
@@ -10,13 +11,13 @@ namespace Selenium.Page.Repository
 {
     public class SeleniumBase : IBase
     {
-        protected IWebDriver _driver;
+        public IWebDriver Driver { get; set; }
 
         public void InitialSetup()
         {
-            _driver = GetDriver(BrowserType.Chrome);
-            _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("https://qa.moodle.net/");
+            Driver = GetDriver(BrowserType.Chrome);
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().GoToUrl("https://qa.moodle.net/");
         }
         private IWebDriver GetDriver(BrowserType browserType)
         {

@@ -12,7 +12,7 @@ namespace Tests.Repository
 
         public LogInTests()
         {
-            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium);
+            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium,_base);
         }
 
         [Test]

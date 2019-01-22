@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Pages.Contracts;
 using Pages.Factory;
+using Selenium.Page.Repository;
 
 namespace Tests.Repository
 {
@@ -12,7 +13,7 @@ namespace Tests.Repository
 
         public GradeBookTests()
         {
-            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium);
+            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium,_base);
         }
 
         [Test]

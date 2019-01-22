@@ -7,15 +7,11 @@ namespace Tests.Repository
 {
     public class BaseClass
     {
-        private IBase _base;
+        protected IBase _base;
 
         public BaseClass()
         {
             _base = BaseFactory.GetInstance<IBase>(ToolType.Selenium);
-        }
-        [OneTimeSetUp]
-        public void SetUp()
-        {
             _base.InitialSetup();
         }
 
