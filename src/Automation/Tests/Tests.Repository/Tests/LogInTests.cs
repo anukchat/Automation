@@ -6,13 +6,13 @@ using Pages.Factory;
 namespace Tests.Repository
 {
     [TestFixture]
-    public class LogInTests:BaseClass
+    public class LogInTests : BaseClass
     {
         private ILogIn _LogIn;
 
         public LogInTests()
         {
-            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium,_base);
+            _LogIn = BaseFactory.GetInstance<ILogIn>(ToolType.Selenium, _base);
         }
 
         [Test]
@@ -20,12 +20,11 @@ namespace Tests.Repository
         {
             _LogIn.LogIn("student", "test");
             _LogIn.VerifyLogIn("Sam Student");
-
         }
+
         [Test]
         public void TestMethod2()
         {
-
         }
     }
 }

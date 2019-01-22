@@ -2,20 +2,18 @@
 using OpenQA.Selenium;
 using Pages.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Selenium.Page.Repository.Pages
 {
     public class SeleniumLogInPage : ILogIn
     {
         private IWebDriver _driver;
+
         public SeleniumLogInPage(SeleniumBase driver)
         {
             this._driver = driver.Driver;
         }
+
         public void ForgotPassword()
         {
             throw new NotImplementedException();
@@ -23,7 +21,7 @@ namespace Selenium.Page.Repository.Pages
 
         public void LogIn(string userName, string password)
         {
-            var usernameBox= _driver.FindElement(By.Id("login_username"));
+            var usernameBox = _driver.FindElement(By.Id("login_username"));
             var passwordBox = _driver.FindElement(By.Id("login_password"));
             var logInButton = _driver.FindElement(By.XPath("//*[@id=\"login\"]/div[4]/input"));
 
