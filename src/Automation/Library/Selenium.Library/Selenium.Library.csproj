@@ -52,11 +52,13 @@
   <ItemGroup>
     <Compile Include="Extensions\DriverExtensions.cs" />
     <Compile Include="Helpers\WaitHelpers.cs" />
+    <Compile Include="ObjectRepository\WebRepository\LogInLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

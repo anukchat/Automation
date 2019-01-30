@@ -58,6 +58,10 @@
       <Project>{D936D246-2D27-4313-BD54-F6D8A6498284}</Project>
       <Name>Common.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Library\Selenium.Library\Selenium.Library.csproj">
+      <Project>{9a690cb9-fdbf-43ad-866d-30a9937b47fb}</Project>
+      <Name>Selenium.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Pages.Contracts\Pages.Contracts.csproj">
       <Project>{41E0A0B0-1E60-4C26-9708-C78A30502841}</Project>
       <Name>Pages.Contracts</Name>

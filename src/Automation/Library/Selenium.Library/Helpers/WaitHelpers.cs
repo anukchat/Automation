@@ -10,17 +10,17 @@ namespace Selenium.Library.Helpers
 {
     public class WaitHelpers
     {
-        protected bool WaitFor(Func<bool> waitFunction, string timeoutMessage)
+        public static bool WaitFor(Func<bool> waitFunction, string timeoutMessage)
         {
             return WaitFor<bool>(waitFunction, timeoutMessage);
         }
 
-        protected T WaitFor<T>(Func<T> waitFunction, string timeoutMessage)
+        public static T WaitFor<T>(Func<T> waitFunction, string timeoutMessage)
         {
-            return this.WaitFor<T>(waitFunction, TimeSpan.FromSeconds(5), timeoutMessage);
+            return WaitFor<T>(waitFunction, TimeSpan.FromSeconds(5), timeoutMessage);
         }
 
-        protected T WaitFor<T>(Func<T> waitFunction, TimeSpan timeout, string timeoutMessage)
+        public static T WaitFor<T>(Func<T> waitFunction, TimeSpan timeout, string timeoutMessage)
         {
             DateTime endTime = DateTime.Now.Add(timeout);
             T value = default(T);

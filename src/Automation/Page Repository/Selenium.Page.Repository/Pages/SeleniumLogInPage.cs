@@ -1,42 +1,35 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using Pages.Contracts;
 using System;
+using Selenium.Library.ObjectRepository.WebRepository;
+using Selenium.Library.Extensions;
+using OpenQA.Selenium;
 
 namespace Selenium.Page.Repository.Pages
 {
     public class SeleniumLogInPage : ILogIn
     {
-        #region Locators: ID
-        private readonly By logInUserNameID = By.Id("login_username");
-        private readonly By logInPasswordID = By.Id("login_password");
-        #endregion
-
-        #region Locators: XPath
-        private readonly By logInButtonXPath = By.XPath("//*[@id=\"login\"]/div[4]/input");
-        #endregion
-
         private IWebDriver _driver;
 
-        public SeleniumLogInPage(SeleniumBase driver)
+        public SeleniumLogInPage(IWebDriver driver)
         {
-            this._driver = driver.Driver;
+            this._driver = driver;
         }
 
         public void ForgotPassword()
         {
-            throw new NotImplementedException();
+            _driver.GetElement(LogInLocator.LogInPasswordBoxID);
         }
 
         public void LogIn(string userName, string password)
         {
-            var usernameBox = _driver.FindElement(logInUserNameID);
-            var passwordBox = _driver.FindElement(logInPasswordID);
-            var logInButton = _driver.FindElement(logInButtonXPath);
+            var usernameBox = _driver.GetElement(LogInLocator.LogInUserNameBoxID);
+            var passwordBox = _driver.GetElement(LogInLocator.LogInPasswordBoxID);
+            var logInButton = _driver.GetElement(LogInLocator.LogInButtonXPath);
 
-            usernameBox.SendKeys(userName);
-            passwordBox.SendKeys(password);
-            logInButton.Click();
+            usernameBox.EnterText(userName);
+            passwordBox.EnterText(password);
+            logInButton.ClickElement();
         }
 
         public void VerifyForgotPassword()
@@ -46,7 +39,7 @@ namespace Selenium.Page.Repository.Pages
 
         public void VerifyLogIn(string expectedUser)
         {
-            var userDisplayed = _driver.FindElement(By.ClassName("usertext"));
+            var userDisplayed = _driver.GetElement(LogInLocator.DisplayedUserCSSSelector);
             Assert.AreEqual(expectedUser, userDisplayed.Text, "LogIn failed!! Actual and expected user do not match!!");
         }
     }
