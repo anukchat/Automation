@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="APIBase.cs" />
     <Compile Include="Headspring\Enumeration.cs" />
+    <Compile Include="Pages\APILogIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ namespace API.Page.Repository
     {
         public void InitialSetup()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
