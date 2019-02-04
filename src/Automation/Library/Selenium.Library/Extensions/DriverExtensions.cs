@@ -64,7 +64,10 @@ namespace Selenium.Library.Extensions
 
         public static void EnterText(this IWebElement element, string text)
         {
+            WaitHelpers.WaitFor(() =>element.Displayed && element.Enabled , "Not Able to find element! ELement might not be present");
             element.SendKeys(text);
         }
+
+
     }
 }
