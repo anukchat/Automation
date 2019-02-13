@@ -17,7 +17,6 @@ namespace API.Page.Repository
     {
         public void InitialSetup()
         {
-            
         }
     }
 }

@@ -21,6 +21,11 @@ namespace Selenium.Page.Repository.Pages
             _driver.GetElement(LogInLocator.LogInPasswordBoxID);
         }
 
+        public void ListUsers()
+        {
+            throw new NotImplementedException();
+        }
+
         public void LogIn(string userName, string password)
         {
             var usernameBox = _driver.GetElement(LogInLocator.LogInUserNameBoxID);
@@ -30,6 +35,9 @@ namespace Selenium.Page.Repository.Pages
             usernameBox.EnterText(userName);
             passwordBox.EnterText(password);
             logInButton.ClickElement();
+
+            //Fetch the username logged in and map to LogInTdo
+
         }
 
         public void VerifyForgotPassword()

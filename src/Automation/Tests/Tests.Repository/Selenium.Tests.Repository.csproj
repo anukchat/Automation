@@ -9,8 +9,8 @@
     <ProjectGuid>{9EF95D16-26BF-4D12-A05C-A74691DFEB35}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests.Repository</RootNamespace>
-    <AssemblyName>Tests.Repository</AssemblyName>
+    <RootNamespace>Selenium.Tests.Repository</RootNamespace>
+    <AssemblyName>Selenium.Tests.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

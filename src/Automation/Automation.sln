@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Repository", "Tests\Tests.Repository\Tests.Repository.csproj", "{9EF95D16-26BF-4D12-A05C-A74691DFEB35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Tests.Repository", "Tests\Tests.Repository\Selenium.Tests.Repository.csproj", "{9EF95D16-26BF-4D12-A05C-A74691DFEB35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.Factory", "Factory\Pages.Factory\Pages.Factory.csproj", "{49E39D95-B98B-4080-87B4-9022870B30D4}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Library", "Library\Common.Library\Common.Library.csproj", "{D936D246-2D27-4313-BD54-F6D8A6498284}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.Contracts", "Pages.Contracts\Pages.Contracts.csproj", "{41E0A0B0-1E60-4C26-9708-C78A30502841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Tests.Repository", "API.Tests.Repository\API.Tests.Repository.csproj", "{561797F8-4265-4085-9A2B-51F709F89827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{41E0A0B0-1E60-4C26-9708-C78A30502841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41E0A0B0-1E60-4C26-9708-C78A30502841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41E0A0B0-1E60-4C26-9708-C78A30502841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{561797F8-4265-4085-9A2B-51F709F89827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{561797F8-4265-4085-9A2B-51F709F89827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{561797F8-4265-4085-9A2B-51F709F89827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{561797F8-4265-4085-9A2B-51F709F89827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{8472754E-02B7-434A-9B6B-D6C0BDBD2B79} = {53181EE5-0571-4B63-A5E1-633A8EBD4C6E}
 		{D936D246-2D27-4313-BD54-F6D8A6498284} = {53181EE5-0571-4B63-A5E1-633A8EBD4C6E}
 		{41E0A0B0-1E60-4C26-9708-C78A30502841} = {90A1FE3A-88FE-4C6E-B2D1-1B4DD1E2FD58}
+		{561797F8-4265-4085-9A2B-51F709F89827} = {5E5386F4-242B-4D5B-BD0F-2816749A9ED7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECB7AE51-8324-4584-AEF5-82839792EC60}

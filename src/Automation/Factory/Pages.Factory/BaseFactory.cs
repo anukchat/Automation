@@ -1,4 +1,5 @@
 ﻿using API.Page.Repository;
+using API.Page.Repository.Pages;
 using Common.Library.enums;
 using Pages.Contracts;
 using Selenium.Page.Repository;
@@ -18,6 +19,10 @@ namespace Pages.Factory
                 if (typeof(T) == typeof(IBase))
                 {
                     obj = (T)Activator.CreateInstance(typeof(APIBase));
+                }
+                else if (typeof(T) == typeof(ILogIn))
+                {
+                    obj = (T)Activator.CreateInstance(typeof(APILogIn));
                 }
             }
             else if (tool == ToolType.Selenium)

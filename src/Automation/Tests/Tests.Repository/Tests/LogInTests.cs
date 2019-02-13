@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Pages.Contracts;
 using Pages.Factory;
 
-namespace Tests.Repository
+namespace Selenium.Tests.Repository
 {
     [TestFixture]
     public class LogInTests : BaseClass
