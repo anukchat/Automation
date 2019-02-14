@@ -49,9 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssertHelper.cs" />
     <Compile Include="DTO\LogInDTO.cs" />
-    <Compile Include="DTO\TestTDO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="enums\BrowserType.cs" />
     <Compile Include="enums\ToolType.cs" />
     <Compile Include="EnvironmentManager.cs" />

@@ -22,7 +22,7 @@ namespace API.Page.Repository.Pages
             
             var restURL = RestApiHelper.SetUrl("api/users?page=2");
             var request = RestApiHelper.CreateGetRequest();
-            var response = RestApiHelper.GetResponse<List<TestTDO>>(restURL, request);
+            var response = RestApiHelper.GetResponse<List<UserDTO>>(restURL, request);
         }
 
         public void LogIn(string userName, string password)

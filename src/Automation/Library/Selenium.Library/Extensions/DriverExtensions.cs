@@ -1,12 +1,7 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Library.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Selenium.Library.Extensions
 {
@@ -14,11 +9,13 @@ namespace Selenium.Library.Extensions
     {
         public static IWebElement GetElement(this ISearchContext context, By by, int timeOut = 20)
         {
-            IWebElement element=null;
+            IWebElement element = null;
             try
             {
-                var wait = new DefaultWait<ISearchContext>(context);
-                wait.Timeout = TimeSpan.FromSeconds(timeOut);
+                var wait = new DefaultWait<ISearchContext>(context)
+                {
+                    Timeout = TimeSpan.FromSeconds(timeOut)
+                };
                 return wait.Until((ctx) =>
                 {
                     WaitHelpers.WaitFor(() => ctx.FindElements(by).Count != 0, "Not Able to find element! ELement might not be present");
@@ -28,46 +25,45 @@ namespace Selenium.Library.Extensions
                     return element;
                 });
             }
-            
             catch (NoSuchElementException ex)
             {
-                Console.WriteLine("OOPs!! Unable to find the mentioned element!");
+                Console.WriteLine("OOPs!! Unable to find the mentioned element! Exception: {0}", ex.Message);
             }
             return element;
         }
 
-        public static void ClickElement(this IWebElement element,int timeout=20)
+        public static void ClickElement(this IWebElement element, int timeout = 20)
         {
-                var wait = new DefaultWait<IWebElement>(element);
-                wait.Timeout = TimeSpan.FromSeconds(timeout);
-                wait.Until((ctx) =>
+            var wait = new DefaultWait<IWebElement>(element)
+            {
+                Timeout = TimeSpan.FromSeconds(timeout)
+            };
+            wait.Until((ctx) =>
+            {
+                var el = element.Displayed ? element : null;
+                try
                 {
-                    var el=element.Displayed? element : null;
-                    try
+                    if (el != null && el.Enabled)
                     {
-                        if (el != null && el.Enabled)
-                        {
-                            return el;
-                        }
-                        else
-                        {
-                            return null;
-                        }
+                        return el;
                     }
-                    catch (StaleElementReferenceException)
+                    else
                     {
                         return null;
                     }
-                });
+                }
+                catch (StaleElementReferenceException)
+                {
+                    return null;
+                }
+            });
             element.Click();
         }
 
         public static void EnterText(this IWebElement element, string text)
         {
-            WaitHelpers.WaitFor(() =>element.Displayed && element.Enabled , "Not Able to find element! ELement might not be present");
+            WaitHelpers.WaitFor(() => element.Displayed && element.Enabled, "Not Able to find element! ELement might not be present");
             element.SendKeys(text);
         }
-
-
     }
 }

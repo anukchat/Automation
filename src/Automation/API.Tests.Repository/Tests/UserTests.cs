@@ -1,36 +1,32 @@
 ﻿using API.Library;
-using Common.Library.DTO;
-using Newtonsoft.Json;
-using NUnit.Framework;
-using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Common.Library;
+using Common.Library.DTO;
+using FluentAssertions;
+using NUnit.Framework;
+using System.Net;
 
 namespace API.Tests.Repository.Tests
 {
     [TestFixture]
     public class UserTests
     {
-        private string assemblyPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        
-        [TestCase("api/users/","/ExpectedResponse/Users.json")]
-        public void GetAllUsers(string resourceUri,string expectedResponse)
+        [TestCase("api/users/")]
+        public void GetAllUsersTest(string resourceUri)
         {
-            var input = File.ReadAllText(assemblyPath+expectedResponse).ToString();
             //Create actual test data object
-            var deserial = JsonConvert.DeserializeObject<TestTDO>(input);
+            var expectedResponse = TestDataHelper.ReadJsonText<UserDTO>();
+            var actualResponse = RestApiHelper.PerformGetRequest<UserDTO>(resourceUri);
+            actualResponse.Should().BeEquivalentTo(expectedResponse, "Assertion failed!!");
+        }
+
+        [TestCase("api/users/")]
+        public void PostUserTest(string resourceUri)
+        {
+            var payLoad = TestDataHelper.ReadJsonText<LogInDTO>();
             var restURL = RestApiHelper.SetUrl(resourceUri);
-            var request = RestApiHelper.CreateGetRequest();
-            var response = RestApiHelper.GetResponse<TestTDO>(restURL, request);
-            //Assert.AreEqual(deserial, response);
-            //AssertHelper.PropertyValuesAreEquals(response, deserial);
-            response.Should().BeEquivalentTo(deserial,"Assertion failed!!");
-            //Verify the response
+            var request = RestApiHelper.CreatePostRequest(payLoad);
+            var response = RestApiHelper.GetResponseStatus(restURL, request);
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode, "POST call failed, actual status is {0}", response.StatusCode);
         }
     }
 }

@@ -2,7 +2,6 @@
 {
     public enum ToolType
     {
-        API,
         Selenium
     }
 }

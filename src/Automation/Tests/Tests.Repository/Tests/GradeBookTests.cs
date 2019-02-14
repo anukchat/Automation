@@ -6,27 +6,27 @@ using Pages.Factory;
 
 namespace Selenium.Tests.Repository
 {
-    [TestFixture,TestType(ToolType.API)]
+    [TestFixture, TestType(ToolType.Selenium)]
     public class GradeBookTests : BaseClass
     {
         private ILogIn _LogIn;
 
         public GradeBookTests()
         {
-            _LogIn = BaseFactory.GetInstance<ILogIn>(base.tool, _base);
+            _LogIn = BaseFactory.GetInstance<ILogIn>(tool, _base);
         }
 
         [Test]
         public void TestProject1Presentation()
         {
             _LogIn.LogIn("teacher", "test");
-            //_LogIn.VerifyLogIn("Terri Teacher");
+            _LogIn.VerifyLogIn("Terri Teacher");
         }
 
         [Test]
         public void TestProject2Presentation()
         {
-            _LogIn.ListUsers();
+            
         }
     }
 }

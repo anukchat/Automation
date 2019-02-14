@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
+using System.IO;
 
 namespace Common.Library
 {
-    public class EnvironmentManager
+    public static class EnvironmentManager
     {
+        public static string AssemblyPath { get; } = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/Data/";
+
+        public static string TestFileName { get; } = TestContext.CurrentContext.Test.MethodName.ToString() + "_Data.json";
     }
 }

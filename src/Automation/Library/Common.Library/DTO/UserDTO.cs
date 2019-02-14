@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Library.DTO
 {
-    public class TestTDO
+    public class UserDTO
     {
         [JsonProperty("page")]
         public long Page { get; set; }
@@ -23,7 +19,6 @@ namespace Common.Library.DTO
 
         [JsonProperty("data")]
         public List<Datum> Data { get; set; }
-        
     }
 
     public class Datum

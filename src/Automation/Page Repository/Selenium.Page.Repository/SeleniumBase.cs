@@ -32,5 +32,10 @@ namespace Selenium.Page.Repository
             }
             return _driver;
         }
+
+        public void FinalTearDown()
+        {
+            Driver.Quit();
+        }
     }
 }

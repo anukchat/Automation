@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System.IO;
 
 namespace Common.Library
 {
     public class TestDataHelper
     {
-        //Method to deserialze JSON
+        public static T ReadJsonText<T>() where T : new()
+        {
+            var input = File.ReadAllText(EnvironmentManager.AssemblyPath + EnvironmentManager.TestFileName).ToString();
+            return DeserializeJSON<T>(input);
+        }
 
-        //Method to read test case data 
+        private static T DeserializeJSON<T>(string input) where T : new()
+        {
+            return JsonConvert.DeserializeObject<T>(input);
+        }
     }
 }

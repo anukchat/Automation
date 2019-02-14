@@ -9,6 +9,6 @@
         void ForgotPassword();
 
         void VerifyForgotPassword();
-        void ListUsers();
+
     }
 }

@@ -58,10 +58,6 @@
       <Project>{D936D246-2D27-4313-BD54-F6D8A6498284}</Project>
       <Name>Common.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Page Repository\API.Page.Repository\API.Page.Repository.csproj">
-      <Project>{E2D29B4F-947B-4C9D-90B9-2ED3BEA26897}</Project>
-      <Name>API.Page.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Page Repository\Selenium.Page.Repository\Selenium.Page.Repository.csproj">
       <Project>{0BD9764C-ABAA-413A-BB1E-3632C66DA827}</Project>
       <Name>Selenium.Page.Repository</Name>

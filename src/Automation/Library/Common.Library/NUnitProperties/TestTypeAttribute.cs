@@ -1,6 +1,6 @@
-﻿using System;
-using Common.Library.enums;
+﻿using Common.Library.enums;
 using NUnit.Framework;
+using System;
 
 namespace Common.Library.NUnitProperties
 {
@@ -10,5 +10,4 @@ namespace Common.Library.NUnitProperties
         public TestTypeAttribute(ToolType tool)
             : base(tool) { }
     }
-
 }

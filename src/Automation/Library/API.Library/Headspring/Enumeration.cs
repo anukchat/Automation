@@ -32,8 +32,8 @@ namespace Headspring
         where TEnumeration : Enumeration<TEnumeration, TValue>
         where TValue : IComparable
     {
-        readonly string _displayName;
-        readonly TValue _value;
+        private readonly string _displayName;
+        private readonly TValue _value;
 
         private static Lazy<TEnumeration[]> _enumerations = new Lazy<TEnumeration[]>(GetEnumerations);
 
@@ -114,7 +114,7 @@ namespace Headspring
             return Parse(displayName, "display name", item => item.DisplayName == displayName);
         }
 
-        static bool TryParse(Func<TEnumeration, bool> predicate, out TEnumeration result)
+        private static bool TryParse(Func<TEnumeration, bool> predicate, out TEnumeration result)
         {
             result = GetAll().FirstOrDefault(predicate);
             return result != null;

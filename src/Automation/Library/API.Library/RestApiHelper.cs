@@ -1,12 +1,11 @@
 ﻿using RestSharp;
-using System.Collections.Generic;
 using System.IO;
 
 namespace API.Library
 {
     public class RestApiHelper
     {
-        public static  RestClient _restClient;
+        public static RestClient _restClient;
         public static RestRequest _restRequest;
         public static string _basURL = "https://reqres.in/";
 
@@ -26,6 +25,7 @@ namespace API.Library
             //_restRequest.AddParameter("application/json", jsonString, ParameterType.RequestBody);
             return _restRequest;
         }
+
         public static RestRequest CreatePutRequest(string jsonString)
         {
             _restRequest = new RestRequest(Method.PUT);
@@ -49,7 +49,7 @@ namespace API.Library
             return _restRequest;
         }
 
-        public static object GetResponse<T>(RestClient restClient, RestRequest restRequest) where T:new()
+        public static T GetResponse<T>(RestClient restClient, RestRequest restRequest) where T : new()
         {
             return restClient.Execute<T>(restRequest).Data;
         }
@@ -58,11 +58,20 @@ namespace API.Library
         {
             return restClient.Execute(restRequest);
         }
+
         public static DTO GetContent<DTO>(IRestResponse response)
         {
             var content = response.Content;
             DTO deserializeObject = Newtonsoft.Json.JsonConvert.DeserializeObject<DTO>(content);
             return deserializeObject;
+        }
+
+        public static T PerformGetRequest<T>(string resourceUri) where T : new()
+        {
+            var restURL = SetUrl(resourceUri);
+            var request = CreateGetRequest();
+            var response = GetResponse<T>(restURL, request);
+            return response;
         }
     }
 }

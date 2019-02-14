@@ -3,5 +3,7 @@
     public interface IBase
     {
         void InitialSetup();
+
+        void FinalTearDown();
     }
 }

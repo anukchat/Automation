@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
-using Pages.Contracts;
-using System;
-using Selenium.Library.ObjectRepository.WebRepository;
-using Selenium.Library.Extensions;
 using OpenQA.Selenium;
+using Pages.Contracts;
+using Selenium.Library.Extensions;
+using Selenium.Library.ObjectRepository.WebRepository;
+using System;
 
 namespace Selenium.Page.Repository.Pages
 {
@@ -11,19 +11,14 @@ namespace Selenium.Page.Repository.Pages
     {
         private IWebDriver _driver;
 
-        public SeleniumLogInPage(IWebDriver driver)
+        public SeleniumLogInPage(SeleniumBase _base)
         {
-            this._driver = driver;
+            this._driver = _base.Driver;
         }
 
         public void ForgotPassword()
         {
             _driver.GetElement(LogInLocator.LogInPasswordBoxID);
-        }
-
-        public void ListUsers()
-        {
-            throw new NotImplementedException();
         }
 
         public void LogIn(string userName, string password)
@@ -37,7 +32,6 @@ namespace Selenium.Page.Repository.Pages
             logInButton.ClickElement();
 
             //Fetch the username logged in and map to LogInTdo
-
         }
 
         public void VerifyForgotPassword()
