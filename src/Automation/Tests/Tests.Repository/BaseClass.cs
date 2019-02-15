@@ -8,14 +8,18 @@ namespace Selenium.Tests.Repository
     public class BaseClass
     {
         protected IBase _base;
-        protected ToolType tool = (ToolType)TestContext.CurrentContext.Test.Properties.Get("TestType");
 
-        public BaseClass()
+        public BaseClass(): this(BrowserType.Chrome)
+        { }
+
+        public BaseClass(BrowserType browser):this(browser,ToolType.Selenium)
+        { }
+
+        public BaseClass(BrowserType browser,ToolType toolType)
         {
-            _base = BaseFactory.GetInstance<IBase>(tool);
+            _base = BaseFactory.GetInstance<IBase>(toolType, browser);
             _base.InitialSetup();
         }
-
         [OneTimeTearDown]
         public void TearDown()
         {

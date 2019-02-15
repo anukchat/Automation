@@ -4,7 +4,7 @@ using System;
 
 namespace Common.Library.NUnitProperties
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class TestTypeAttribute : PropertyAttribute
     {
         public TestTypeAttribute(ToolType tool)

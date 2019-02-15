@@ -10,9 +10,16 @@ namespace Selenium.Page.Repository
     {
         public IWebDriver Driver { get; set; }
 
+        private readonly BrowserType _browserType;
+
+        public SeleniumBase(BrowserType browser)
+        {
+            this._browserType = browser;
+        }
+
         public void InitialSetup()
         {
-            Driver = GetDriver(BrowserType.Chrome);
+            Driver = GetDriver(_browserType);
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl("https://qa.moodle.net/");
         }
@@ -27,7 +34,10 @@ namespace Selenium.Page.Repository
                     break;
 
                 case BrowserType.IE:
-                    _driver = new InternetExplorerDriver();
+                    InternetExplorerOptions _ieOptions = new InternetExplorerOptions();
+                    _ieOptions.AddAdditionalCapability("INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS", true);
+                    _ieOptions.EnsureCleanSession = true;
+                    _driver = new InternetExplorerDriver(_ieOptions);
                     break;
             }
             return _driver;

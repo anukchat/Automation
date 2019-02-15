@@ -16,7 +16,7 @@ namespace Pages.Factory
             {
                 if (typeof(T) == typeof(IBase))
                 {
-                    obj = (T)Activator.CreateInstance(typeof(SeleniumBase));
+                    obj = (T)Activator.CreateInstance(typeof(SeleniumBase),param);
                 }
                 else if (typeof(T) == typeof(ILogIn))
                 {
