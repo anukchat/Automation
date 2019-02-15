@@ -1,5 +1,7 @@
-﻿using RestSharp;
+﻿using Common.Library;
+using RestSharp;
 using System.IO;
+using System.Net;
 
 namespace API.Library
 {
@@ -54,9 +56,9 @@ namespace API.Library
             return restClient.Execute<T>(restRequest).Data;
         }
 
-        public static IRestResponse GetResponseStatus(RestClient restClient, RestRequest restRequest)
+        public static HttpStatusCode GetResponseStatus(RestClient restClient, RestRequest restRequest)
         {
-            return restClient.Execute(restRequest);
+            return restClient.Execute(restRequest).StatusCode;
         }
 
         public static DTO GetContent<DTO>(IRestResponse response)
@@ -73,5 +75,16 @@ namespace API.Library
             var response = GetResponse<T>(restURL, request);
             return response;
         }
+
+        public static HttpStatusCode PerformPostRequest<T>(string resourcerequest) where T : new()
+        {
+            var payLoad = TestDataHelper.ReadJsonText<T>();
+            var restURL = SetUrl(resourcerequest);
+            var request = CreatePostRequest(payLoad);
+            var response = GetResponseStatus(restURL, request);
+            return response;
+        }
+
+
     }
 }

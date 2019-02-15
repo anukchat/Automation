@@ -22,11 +22,16 @@ namespace API.Tests.Repository.Tests
         [TestCase("api/users/")]
         public void PostUserTest(string resourceUri)
         {
-            var payLoad = TestDataHelper.ReadJsonText<LogInDTO>();
-            var restURL = RestApiHelper.SetUrl(resourceUri);
-            var request = RestApiHelper.CreatePostRequest(payLoad);
-            var response = RestApiHelper.GetResponseStatus(restURL, request);
-            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode, "POST call failed, actual status is {0}", response.StatusCode);
+            var actualStatusCode=RestApiHelper.PerformPostRequest<LogInDTO>(resourceUri);
+            Assert.AreEqual(HttpStatusCode.Created, actualStatusCode, "POST call failed, actual status is {0}", actualStatusCode);
+        }
+
+        [TestCase("api/users/2")]
+        public void GetSingleUserTest(string resourceUri)
+        {
+            var expectedResponse = TestDataHelper.ReadJsonText<Datum>();
+            var actualResponse = RestApiHelper.PerformGetRequest<Datum>(resourceUri);
+            actualResponse.Should().BeEquivalentTo(expectedResponse, "Assertion failed!!");
         }
     }
 }
