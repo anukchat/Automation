@@ -1,6 +1,8 @@
 ﻿namespace API.Tests.Repository.APIResource
 {
-    public static class ResourceURI
+    public class ResourceURI
     {
+        public const string UsersURI = @"api/users/";
     }
+
 }

@@ -1,32 +1,35 @@
 ﻿using API.Library;
+using API.Tests.Repository.APIResource;
 using Common.Library;
 using Common.Library.DTO;
 using FluentAssertions;
 using NUnit.Framework;
 using System.Net;
+using Common.Library.Attributes;
+using Common.Library.enums;
 
 namespace API.Tests.Repository.Tests
 {
-    [TestFixture]
-    public class UserTests
+    [TestFixture,Resource(ResourceURI.UsersURI)]
+    public class UserTests: APIBase
     {
-        [TestCase("api/users/")]
-        public void GetAllUsersTest(string resourceUri)
+        [Test]
+        public void GetAllUsersTest()
         {
             //Create actual test data object
             var expectedResponse = TestDataHelper.ReadJsonText<UserDTO>();
-            var actualResponse = RestApiHelper.PerformGetRequest<UserDTO>(resourceUri);
+            var actualResponse = RestApiHelper.PerformGetRequest<UserDTO>();
             actualResponse.Should().BeEquivalentTo(expectedResponse, "Assertion failed!!");
         }
 
-        [TestCase("api/users/")]
-        public void PostUserTest(string resourceUri)
+        [Test]
+        public void PostUserTest()
         {
-            var actualStatusCode=RestApiHelper.PerformPostRequest<LogInDTO>(resourceUri);
+            var actualStatusCode=RestApiHelper.PerformPostRequest<LogInDTO>();
             Assert.AreEqual(HttpStatusCode.Created, actualStatusCode, "POST call failed, actual status is {0}", actualStatusCode);
         }
 
-        [TestCase("api/users/2")]
+        [TestCase("2")]
         public void GetSingleUserTest(string resourceUri)
         {
             var expectedResponse = TestDataHelper.ReadJsonText<Datum>();

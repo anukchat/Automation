@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIResource\ResourceURI.cs" />
+    <Compile Include="Tests\APIBase.cs" />
     <Compile Include="Tests\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

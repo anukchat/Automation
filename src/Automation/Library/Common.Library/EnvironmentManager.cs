@@ -8,5 +8,6 @@ namespace Common.Library
         public static string AssemblyPath { get; } = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/Data/";
 
         public static string TestFileName { get; } = TestContext.CurrentContext.Test.MethodName.ToString() + "_Data.json";
+        public static string BaseURL { get; set; } = "https://reqres.in/";
     }
 }
