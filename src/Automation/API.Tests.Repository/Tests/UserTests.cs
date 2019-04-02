@@ -10,8 +10,8 @@ using Common.Library.enums;
 
 namespace API.Tests.Repository.Tests
 {
-    [TestFixture,Resource(ResourceURI.UsersURI)]
-    public class UserTests: APIBase
+    [TestFixture, Resource(ResourceURI.UsersURI)]
+    public class UserTests : APIBase
     {
         [Test]
         public void GetAllUsersTest()
@@ -25,7 +25,7 @@ namespace API.Tests.Repository.Tests
         [Test]
         public void PostUserTest()
         {
-            var actualStatusCode=RestApiHelper.PerformPostRequest<LogInDTO>();
+            var actualStatusCode = RestApiHelper.PerformPostRequest<LogInDTO>();
             Assert.AreEqual(HttpStatusCode.Created, actualStatusCode, "POST call failed, actual status is {0}", actualStatusCode);
         }
 

@@ -5,9 +5,11 @@ namespace Common.Library
 {
     public class TestDataHelper
     {
-        public static T ReadJsonText<T>() where T : new()
+        public static T ReadJsonText<T>(string dataFile=null) where T : new()
         {
-            var input = File.ReadAllText(EnvironmentManager.AssemblyPath + EnvironmentManager.TestFileName).ToString();
+            if (dataFile == null)
+                dataFile = EnvironmentManager.TestFileName;
+            var input = File.ReadAllText(EnvironmentManager.AssemblyPath + dataFile).ToString();
             return DeserializeJSON<T>(input);
         }
 

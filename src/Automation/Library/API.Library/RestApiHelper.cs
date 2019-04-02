@@ -3,8 +3,11 @@ using Common.Library.Attributes;
 using NUnit.Framework;
 using RestSharp;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace API.Library
 {
@@ -32,6 +35,35 @@ namespace API.Library
             _restRequest.AddJsonBody(dataObject);
             //_restRequest.AddParameter("application/json", jsonString, ParameterType.RequestBody);
             return _restRequest;
+        }
+
+        public static double ExecuteRest(int numberOfLoads)
+        {
+            var client = SetUrl("");
+            
+            Stopwatch watch = new Stopwatch();
+
+            watch.Start();
+            for(int i=0;i< numberOfLoads;i++)
+            {
+                var cancellationTokenSource = new CancellationTokenSource();
+                RestRequest _restRequest = new RestRequest();
+                _restRequest.AddHeader("Accept", "application/json");
+                
+                var response=client.ExecuteAsync(_restRequest,(rp)=>
+                {
+                    if (rp.StatusCode != HttpStatusCode.OK)
+                    {
+                        throw new Exception("ERROR");
+                    }
+
+                });
+            }
+            watch.Stop();
+            
+            return watch.Elapsed.TotalMilliseconds;
+            //Debug.WriteLine("Elapsed Time {0} ", watch.Elapsed.Seconds);
+
         }
 
         public static RestRequest CreatePutRequest(string jsonString)
