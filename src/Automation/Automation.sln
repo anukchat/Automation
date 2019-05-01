@@ -27,6 +27,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.Contracts", "Pages.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Tests.Repository", "API.Tests.Repository\API.Tests.Repository.csproj", "{561797F8-4265-4085-9A2B-51F709F89827}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A51E0A51-3078-4471-B871-9DD550CC346F}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.md = TextFile1.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

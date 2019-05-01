@@ -12,10 +12,10 @@ namespace Selenium.Tests.Repository
         public BaseClass(): this(BrowserType.Chrome)
         { }
 
-        public BaseClass(BrowserType browser):this(browser,ToolType.Selenium)
+        public BaseClass(BrowserType browser):this(browser,Platform.Web)
         { }
 
-        public BaseClass(BrowserType browser,ToolType toolType)
+        public BaseClass(BrowserType browser,Platform toolType)
         {
             _base = BaseFactory.GetInstance<IBase>(toolType, browser);
             _base.InitialSetup();

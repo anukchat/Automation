@@ -6,14 +6,14 @@ using Pages.Factory;
 
 namespace Selenium.Tests.Repository
 {
-    [TestFixture(BrowserType.Chrome,ToolType.Selenium)]
+    [TestFixture(BrowserType.Chrome,Platform.Web)]
     public class LogInTests : BaseClass
     {
         private ILogIn _LogIn;
 
-        public LogInTests(BrowserType browserType, ToolType toolType) :base(browserType,toolType)
+        public LogInTests(BrowserType browserType, Platform pType) :base(browserType,pType)
         {
-            _LogIn = BaseFactory.GetInstance<ILogIn>(toolType, _base);
+            _LogIn = BaseFactory.GetInstance<ILogIn>(pType, _base);
         }
 
         [Test]

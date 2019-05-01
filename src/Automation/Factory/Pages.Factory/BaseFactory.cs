@@ -8,11 +8,11 @@ namespace Pages.Factory
 {
     public class BaseFactory
     {
-        public static T GetInstance<T>(ToolType tool, object param = null)
+        public static T GetInstance<T>(Platform tool, object param = null)
         {
             T obj = default(T);
 
-            if (tool == ToolType.Selenium)
+            if (tool == Platform.Web)
             {
                 if (typeof(T) == typeof(IBase))
                 {

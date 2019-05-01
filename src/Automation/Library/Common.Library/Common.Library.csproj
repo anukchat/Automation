@@ -53,8 +53,8 @@
     <Compile Include="DTO\LogInDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="enums\BrowserType.cs" />
+    <Compile Include="enums\Platform.cs" />
     <Compile Include="enums\ResourceType.cs" />
-    <Compile Include="enums\ToolType.cs" />
     <Compile Include="EnvironmentManager.cs" />
     <Compile Include="Attributes\TestTypeAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
